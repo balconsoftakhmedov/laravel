@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get( '/', function () {
+    return view( 'welcome' );
+} );
+Route::get( '/products', function () {
+    return '/products';
+} )->middleware('checkinput');
+Route::get( '/product/{id}/{comment}', function ( $id, $comment ) {
+    return [ $id, $comment ];
+} );
+Route::prefix( 'admin')->group(function (){
+    Route::match( ['get', 'post'], '/auth', function () {
+    return 'auth.index';
+    })->middleware('throttle:test');
+    Route::match( ['get', 'post'], '/products', function () {
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    return 'products';
+    });
+    Route::match( ['get', 'post'], '/clients', function () {
+
+    return 'clients';
+    });
+} );
+
+Route::get( '/secretpage', function () {
+    return '/secretpage';
+} );
+
+Route::get( '/mypage', [MainController::class, 'test']);
+Route::get( '/mypageblade', [MainController::class, 'testblade']);
+
