@@ -6,14 +6,17 @@ use Illuminate\View\Component;
 
 class contactForm extends Component
 {
+    public $email;
+    public $name;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email, $name)
     {
-        //
+        $this->email = $email;
+        $this->name = $name;
     }
 
     /**
