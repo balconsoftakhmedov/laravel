@@ -26,4 +26,14 @@ class MainController extends Controller
         $id = 1; $name= 'rr'; $email = 'qqqqq';
         return view('example', ['id' => $id, 'name' => $name, 'email' => $email]);
     }
+    public function testview(Request $request)
+    {
+          $id = 1; $name= 'rr'; $email = 'qqqqq';
+        return view('sub.testview', ['id' => $id, 'name' => $name, 'email' => $email]);
+    }
+    public function contacts(Request $request)
+    {
+          $id = 1; $name= 'rr'; $email = 'qqqqq';
+        return view('sub.contacts', ['id' => $id, 'name' => $name, 'email' => $email]);
+    }
 }

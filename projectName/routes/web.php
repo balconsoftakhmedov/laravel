@@ -41,4 +41,6 @@ Route::get( '/secretpage', function () {
 
 Route::get( '/mypage', [MainController::class, 'test']);
 Route::get( '/mypageblade', [MainController::class, 'testblade']);
+Route::get( '/testview', [MainController::class, 'testview']);
+Route::get( '/mypageblade/contacts', [MainController::class, 'contacts']);
 

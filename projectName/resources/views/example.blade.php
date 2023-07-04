@@ -8,9 +8,12 @@
     </head>
     <body class="antialiased">
 
-   <?=$id ?><?=$name ?><?=$email ?>
-   "В вашей корзине  {{ $sum }} тов. на общую сумму   руб."
 
-ffffffffff
+@section('content')
+<?=$id ?><?=$name ?><?=$email ?>
+   "В вашей корзине  {{ $sum }} тов. на общую сумму   @mycurrencys($sum, 'vvvvdd') ."
+ @mycurrencys('150', 'vvvvdd')
+@show
+
     </body>
 </html>
