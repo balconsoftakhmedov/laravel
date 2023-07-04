@@ -1,6 +1,6 @@
 @extends ('example')
 
 @section('content')
-Мы находимся по следующему адресу…
+<x-contact-form></x-contact-form>
 @endsection
 

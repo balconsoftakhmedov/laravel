@@ -1,3 +1,5 @@
 <div>
-    <!-- Simplicity is the essence of happiness. - Cedric Bledsoe -->
+   <input type="email" name="emailname">
+    <br />
+    <input type="text" name="name">
 </div>
