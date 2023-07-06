@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 
 class MainController extends Controller {
     /**
@@ -52,6 +53,26 @@ class MainController extends Controller {
 
         return view( 'sub.contacts', [ 'id' => $id, 'name' => $name, 'email' => $email ] );
     }
+    public function clients( Request $request ) {
+        $id       = 1;
+        $name     = 'rr';
+        $email    = 'qqqqq';
+        $ip       = $request->ip();
+        $dateTime = now();
+        $url      = $request->fullUrl();
+        Log::channel( 'daily' )->notice( "$ip, $dateTime, $url");
 
-    public function testUrl()
+        return view( 'sub.contacts', [ 'id' => $id, 'name' => $name, 'email' => $email ] );
+    }
+
+    public function testUrl(){
+        echo url()->temporarySignedRoute('activate', now()->addMinutes(1), ['id'=>1]);
+    }
+
+    public function activate(Request  $request){
+        if($request->hasValidSignature()){
+            return 'successful signed';
+        }
+        abort('403');
+    }
 }

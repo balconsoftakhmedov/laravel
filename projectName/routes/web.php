@@ -43,4 +43,6 @@ Route::get( '/mypage', [MainController::class, 'test']);
 Route::get( '/mypageblade', [MainController::class, 'testblade']);
 Route::get( '/testview', [MainController::class, 'testview']);
 Route::get( '/mypageblade/contacts', [MainController::class, 'contacts']);
+Route::get( '/testurl', [MainController::class, 'testUrl']);
+Route::get( '/activate', [MainController::class, 'activate'])->name('activate');
 
