@@ -46,3 +46,7 @@ Route::get( '/mypageblade/contacts', [MainController::class, 'contacts']);
 Route::get( '/testurl', [MainController::class, 'testUrl']);
 Route::get( '/activate', [MainController::class, 'activate'])->name('activate');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
